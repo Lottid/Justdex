@@ -6,12 +6,17 @@ angular.module('Justdex', [
     'pokelist',
     'pokemon'
 ])
-    .config(function($stateProvider){
+    .config(function($stateProvider, $urlRouterProvider){
         $stateProvider
             .state('pokelist',{
-                url:'/',
-                templateUrl: 'app/pokelist/pokelist.tmpl.html'
+                url: '',
+                abstract: true
             })
         ;
+        $urlRouterProvider.otherwise('/');
+    })
+
+    .controller('MainCtrl', function(){
+        console.log("Hi");
     })
 ;
