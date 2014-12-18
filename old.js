@@ -58,7 +58,7 @@ pokedex.controller("AppCtrl", ['$scope','$http', function($scope, $http)
 		});
     };
 
-	// list
+	// pokelist
 	$http.get('data.json').success(function(data){
 		$scope.pokemons = data;
 	});
