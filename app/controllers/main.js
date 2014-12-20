@@ -1,6 +1,6 @@
 // Yunen He 2014 (SukeBeta)
 
-var pokedex = angular.module("pokedexApp", []);
+var pokedex = angular.module("pokedexApp", ['ngMaterial']);
  
 pokedex.controller("AppCtrl", ['$scope','$http', function($scope, $http)
 {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="pokedexApp">
 <head lang="en">
     <meta charset="UTF-8">
     <title>JustIndex</title>
@@ -12,6 +12,7 @@
     <!-- lib script -->
     <script src="../lib/angular.min.js"></script>
     <script src="../lib/angular-material.min.js"></script>
+    <script src="../lib/angular-route.min.js"></script>
 
     <script src="../lib/less.min.js"></script>
 
@@ -19,6 +20,14 @@
     <script src="controllers/main.js"></script>
 </head>
 <body>
-
+<div class="wrapper">
+    <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">
+            <h3>
+                <span>My App Title</span>
+            </h3>
+        </div>
+    </md-toolbar>
+</div>
 </body>
 </html>
