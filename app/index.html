@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="pokedexApp">
+<html>
 <head lang="en">
     <meta charset="UTF-8">
     <title>JustIndex</title>
@@ -11,15 +11,23 @@
 
     <!-- lib script -->
     <script src="../lib/angular.min.js"></script>
-    <script src="../lib/angular-material.min.js"></script>
     <script src="../lib/angular-route.min.js"></script>
+
+    <!-- Angular Material Dependencies -->
+    <script src="../lib/hammer.min.js"></script>
+    <script src="../lib/angular.min.js"></script>
+    <script src="../lib/angular-animate.min.js"></script>
+    <script src="../lib/angular-aria.min.js"></script>
+
+    <!-- Angular Material Javascript now available via Google CDN; version 0.6 used here -->
+    <script src="../lib/angular-material.min.js"></script>
 
     <script src="../lib/less.min.js"></script>
 
     <!-- page script -->
     <script src="controllers/main.js"></script>
 </head>
-<body>
+<body ng-app="pokedexApp" ng-controller="AppCtrl">
 <div class="wrapper">
     <md-toolbar md-scroll-shrink>
         <div class="md-toolbar-tools">
@@ -29,5 +37,6 @@
         </div>
     </md-toolbar>
 </div>
+
 </body>
 </html>
