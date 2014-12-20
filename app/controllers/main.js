@@ -13,11 +13,11 @@ pokedex.controller("AppCtrl", ['$scope','$http', function($scope, $http)
 		$scope.selectedPokemon.image = pokemon.image; 
 		$scope.selectedPokemon.number = pokemon.number; 
 		$scope.selectedPokemon.name = pokemon.name;
-	}
+	};
 	
 	$scope.showList = function(){
 		$scope.isShowingDetails = false;
-	}
+	};
 	
 	// id
 	$scope.getId = function(pokemon){
@@ -30,22 +30,22 @@ pokedex.controller("AppCtrl", ['$scope','$http', function($scope, $http)
 			id = '0' + id;
 		
 		return id
-	}
+	};
 	
 	// type
 	$scope.showType = function(type){
-		return 'images/' + type + '.gif';
-	}
+		return 'assets/images/' + type + '.gif';
+	};
 	
 	// icon
 	$scope.icon = function(id){
-		return "icons/" + id + ".png"
-	}
+		return "assets/images/icons/" + id + ".png"
+	};
 	
 	// sort
 	$scope.sortById = function(pokemon) {
         return $scope.getId(pokemon);
-    }
+    };
     
     // detail
     $scope.selectPokemon = function (pokemon){
@@ -56,10 +56,10 @@ pokedex.controller("AppCtrl", ['$scope','$http', function($scope, $http)
 		$http.jsonp(url).success(function(data){
 			$scope.pokemonSelected = data;
 		});
-    }
+    };
     	
 	// list
-	$http.get('data.json').success(function(data){
+	$http.get('assets/javascripts/data/data.json').success(function(data){
 		$scope.pokemons = data;
 	});
 
