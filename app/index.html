@@ -2,11 +2,13 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <title>JustIndex</title>
     <!-- material css -->
     <link rel="stylesheet" href="../lib/angular-material.min.css">
 
     <link rel="stylesheet" href="assets/stylesheets/normalize.css">
+    <link rel="stylesheet/less" href="assets/stylesheets/font.less">
     <link rel="stylesheet/less" href="assets/stylesheets/main.less">
 
     <!-- lib script -->
@@ -15,27 +17,56 @@
 
     <!-- Angular Material Dependencies -->
     <script src="../lib/hammer.min.js"></script>
-    <script src="../lib/angular.min.js"></script>
     <script src="../lib/angular-animate.min.js"></script>
     <script src="../lib/angular-aria.min.js"></script>
 
     <!-- Angular Material Javascript now available via Google CDN; version 0.6 used here -->
     <script src="../lib/angular-material.min.js"></script>
 
-    <script src="../lib/less.min.js"></script>
-
     <!-- page script -->
+    <script src="../lib/less.min.js"></script>
     <script src="controllers/main.js"></script>
+
 </head>
 <body ng-app="pokedexApp" ng-controller="AppCtrl">
 <div class="wrapper">
-    <md-toolbar md-scroll-shrink>
-        <div class="md-toolbar-tools">
-            <h3>
-                <span>My App Title</span>
-            </h3>
+    <!-- top bar -->
+    <md-toolbar md-scroll-shrink class="topbar" layout="row" layout-align="start center">
+        <a href="/" class="topbar-logo">
+            <span>Justdex</span>
+        </a>
+        <div class="topbar-search" flex>
+            <div layout="row">
+                <input type="text" placeholder="Pokemon" ng-model="search"/>
+                <button></button>
+            </div>
         </div>
-    </md-toolbar>
+    </md-toolbar><!-- end top bar-->
+
+    <!-- pokemon list -->
+    <md-content style="background: none">
+        <md-list class="pokemon-list">
+            <md-item ng-repeat = "pokemon in pokemons | filter:search | orderBy:sortById | limitTo:10 " ng-click = "selectPokemon(pokemon)">
+                <md-item-content layout="row">
+                    <div class="md-tile-left">
+                        <div class="pokemon-list-avatar">
+                            <img ng-src="{{icon(getId(pokemon))}}" class="face" alt="Circular Image">
+                        </div>
+                    </div>
+                    <div class="md-tile-content" flex layout="row" layout-align="start center">
+                        <div class="pokemon-list-info" flex>
+                            <small>#{{getId(pokemon)}}</small>
+                            <h2>{{pokemon.name}}</h2>
+                            <div class="icon-wrap">
+                                <i pokemon-type="speed">seed</i><i pokemon-type="speed">seed</i>
+                            </div>
+                        </div>
+                        <div class="pokemon-list-favorite">★</div>
+                    </div>
+                </md-item-content>
+            </md-item>
+        </md-list>
+    </md-content><!-- end pokemon list -->
 </div>
 
 </body>
