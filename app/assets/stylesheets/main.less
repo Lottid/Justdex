@@ -1,6 +1,15 @@
 /* Qianglong Mo 2014 (SukeBeta) */
 
 /* =============== Font =============== */
+.transition(@property, @duration){
+  -webkit-transition: @property @duration;
+  -moz-transition: @property @duration;
+  -ms-transition: @property @duration;
+  -o-transition: @property @duration;
+  transition: @property @duration;
+}
+
+/* =============== Font =============== */
 .ffnormal {
   font-family: 'Open Sans', Arial, 'Hiragino Sans GB', 'Microsoft YaHei', STHeiti, 'WenQuanYi Micro Hei', SimSun, sans-serif;
 }
@@ -145,11 +154,16 @@ md-toolbar.topbar {
   text-decoration: none;
   background: #01A0BA url("../images/topbar-logo.png") no-repeat 5px 5px;
   background-size: 25px;
+  .transition(all, .4s);
 
   span {
     color: #fff;
     .ffnormal500;
   }
+}
+
+.topbar-logo:hover {
+  background-color: #028AA0;
 }
 
 .topbar-search {
@@ -196,6 +210,13 @@ md-toolbar.topbar {
 .pokemon-list{
   md-item-content {
     padding: 8px 0 8px 24px;
+    cursor: pointer;
+  }
+
+  md-item-content:hover {
+    h2 {
+      color: #00B9D4;
+    }
   }
 
   .md-tile-left{
@@ -208,11 +229,21 @@ md-toolbar.topbar {
     border-radius: 100%;
     border: 1px solid rgba(0, 0, 0, .2);
     background: #fdfdfd;
+    .transition(all, .4s);
 
     img {
       display: block;
       width: 100%;
     }
+  }
+
+  .pokemon-list-avatar:hover {
+    background: #fbfbfb;
+    -webkit-transform: rotate(36deg);
+    -moz-transform: rotate(36deg);
+    -ms-transform: rotate(36deg);
+    -o-transform: rotate(36deg);
+    transform: rotate(36deg);
   }
 
   .md-tile-content {
@@ -233,6 +264,7 @@ md-toolbar.topbar {
       font-size: 1.7142em;
       .ffnormal300;
       font-weight: normal;
+      .transition(all, .4s);
     }
 
     i[pk-type="speed"] {
@@ -290,11 +322,22 @@ md-toolbar.topbar {
     img {
       display: block;
       width: 100%;
+      .transition(all, .4s);
+    }
+  }
+
+  .avatar:hover {
+    img {
+      -webkit-transform: scale(1.1);
+      -moz-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+      -o-transform: scale(1.1);
+      transform: scale(1.1);
     }
   }
 
   .info {
-    h1 {
+    .pokemon-detail-name {
       display: inline-block;
       line-height: 34px;
       margin-bottom: .5em;
@@ -393,6 +436,10 @@ md-toolbar.topbar {
     margin-left: 8px;
   }
 
+  a:hover {
+    text-decoration: underline;
+  }
+
   span {
     color: #333;
     margin-left: 8px;
@@ -467,9 +514,20 @@ md-toolbar.topbar {
     margin-top: 16px;
     margin-bottom: 16px;
     box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+    cursor: pointer;
 
-    .info h1 small {
+    .pokemon-detail-name {
+      .transition(all, .2s);
+    }
+
+    .pokemon-detail-summary small {
         right: -1.45em;
+    }
+  }
+
+  .pokemon-detail-summary:hover {
+    .pokemon-detail-name {
+      color: #00B9D4;
     }
   }
 }
@@ -517,7 +575,7 @@ md-toolbar.topbar {
     }
 
     .info {
-      h1 {
+      .pokemon-detail-name {
         line-height: 34px;
         font-size: 1.425em;
         margin: .2em 0;
