@@ -37,7 +37,7 @@
         </a>
         <div class="topbar-search" flex>
             <div layout="row">
-                <input type="text" placeholder="Pokemon" ng-model="search"/>
+                <input type="text" placeholder="Pokemon" ng-model="search" ng-show="false"/>
                 <button></button>
             </div>
         </div>
@@ -58,7 +58,7 @@
                             <small>#{{getId(pokemon)}}</small>
                             <h2>{{pokemon.name}}</h2>
                             <div class="icon-wrap">
-                                <i pokemon-type="speed">seed</i><i pokemon-type="speed">seed</i>
+                                <i pk-type="speed">seed</i><i pk-type="speed">seed</i>
                             </div>
                         </div>
                         <div class="pokemon-list-favorite">★</div>
