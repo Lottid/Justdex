@@ -59,7 +59,7 @@ pokedex.controller("AppCtrl", ['$scope','$http', function($scope, $http)
     };
 
 	// list
-	$http.get('assets/javascripts/data/data.json').success(function(data){
+	$http.get('data/data.json').success(function(data){
 		$scope.pokemons = data;
 	});
 
