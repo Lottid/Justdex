@@ -1,0 +1,179 @@
+<!-- pokemon pokemon -->
+<div class="pokemon-detail">
+    <!-- pokemon-pokemon-summary -->
+    <div class="pokemon-detail-summary" layout="row">
+        <div class="avatar">
+            <div class="avatar-body">
+                <img ng-src="" class="face" alt="Circular Image">
+            </div>
+        </div>
+        <div class="info" flex>
+            <h1 class="pokemon-detail-name">Bulbasaur <small>#001</small></h1>
+            <div class="btn-wrap">
+                <button class="pokemon-btn">FAIRY</button>
+                <button class="pokemon-btn species-btn" pk-species="seed">Species <span>Seed</span></button>
+
+            </div>
+        </div>
+    </div><!-- end pokemon-pokemon-summary -->
+
+    <!-- pokemon-pokemon-intro -->
+    <div class="pokemon-detail-item pokemon-detail-intro">
+        <div class="pokemon-detail-title">
+            <h2>Intro</h2>
+        </div>
+        <div class="pokemon-detail-content">
+            <ul class="list">
+                <li class="list-item">Height:<span>2′4″ (0.71m)</span></li>
+                <li class="list-item">Weight:<span>15.2 lbs (6.9 kg)</span></li>
+                <li class="list-item">Japanese:<span>Fushigidane</span></li>
+            </ul>
+            <p>A strange seed was planted on its back at birth. The plant sprouts and grows with this Pokémon.</p>
+        </div>
+    </div><!-- end pokemon-pokemon-intro -->
+
+    <!-- pokemon-pokemon-abilities -->
+    <div class="pokemon-detail-item pokemon-detail-abilities">
+        <div class="pokemon-detail-title">
+            <h2>Abilities</h2>
+        </div>
+        <div class="pokemon-detail-content">
+            <ul class="list list-horizontal">
+                <li class="list-item"><a href="">Cute Charm</a></li>
+                <li class="list-item"><a href="">Magic Guard</a></li>
+            </ul>
+        </div>
+    </div><!-- end pokemon-pokemon-abilities -->
+
+    <!-- pokemon-pokemon-weakness -->
+    <div class="pokemon-detail-item pokemon-detail-weakness">
+        <div class="pokemon-detail-title">
+            <h2>Weakness</h2>
+        </div>
+        <div class="pokemon-detail-content">
+            <div class="btn-group">
+                <button class="pokemon-btn" pk-type="grass">Grass</button>
+                <button class="pokemon-btn" pk-type="poison">Poison</button>
+            </div>
+        </div>
+    </div><!-- end pokemon-pokemon-weakness -->
+
+    <!-- pokemon-pokemon-stats -->
+    <div class="pokemon-detail-item pokemon-detail-stats">
+        <div class="pokemon-detail-title">
+            <h2>Basic stats</h2>
+        </div>
+        <div class="pokemon-detail-content">
+            <div layout="row" layout-align="start center">
+                <h3>HP</h3>
+                <div class="progressbar-info">80</div>
+                <div class="progressbar" flex>
+                    <span class="progressbar-active" style="width: 80%"></span>
+                </div>
+            </div>
+            <div layout="row" layout-align="start center">
+                <h3>Atk</h3>
+                <div class="progressbar-info">54</div>
+                <div class="progressbar" flex>
+                    <span class="progressbar-active" style="width: 54%"></span>
+                </div>
+            </div>
+            <div layout="row" layout-align="start center">
+                <h3>Def</h3>
+                <div class="progressbar-info">36</div>
+                <div class="progressbar" flex>
+                    <span class="progressbar-active" style="width: 36%"></span>
+                </div>
+            </div>
+            <div layout="row" layout-align="start center">
+                <h3>Sp.Atk</h3>
+                <div class="progressbar-info">27</div>
+                <div class="progressbar" flex>
+                    <span class="progressbar-active" style="width: 27%"></span>
+                </div>
+            </div>
+            <div layout="row" layout-align="start center">
+                <h3>Sp.Def</h3>
+                <div class="progressbar-info">76</div>
+                <div class="progressbar" flex>
+                    <span class="progressbar-active" style="width: 76%"></span>
+                </div>
+            </div>
+            <div layout="row" layout-align="start center">
+                <h3>Speed</h3>
+                <div class="progressbar-info">25</div>
+                <div class="progressbar" flex>
+                    <span class="progressbar-active" style="width: 25%"></span>
+                </div>
+            </div>
+            <div class="total">Total:{{80+54+36+27+76+25}}</div>
+        </div>
+    </div><!-- end pokemon-pokemon-stats -->
+
+    <!-- pokemon-pokemon-breeding -->
+    <div class="pokemon-detail-item pokemon-detail-weakness">
+        <div class="pokemon-detail-title">
+            <h2>Breeding</h2>
+        </div>
+        <div class="pokemon-detail-content">
+            <ul class="list">
+                <li class="list-item">Egg Groups:<a href="">Plant</a>,<a href="">Monster</a></li>
+                <li class="list-item">Gender:<span>87.5% male, 12.5% female</span></li>
+                <li class="list-item">Egg Cycles:<span>21</span>(minimum 5,355 steps)</li>
+            </ul>
+        </div>
+    </div><!-- end pokemon-pokemon-breeding -->
+
+    <!-- pokemon-pokemon-evolutions -->
+    <div class="pokemon-detail-item pokemon-detail-evolutions">
+        <div class="pokemon-detail-title">
+            <h2>Evolutions</h2>
+        </div>
+        <div class="pokemon-detail-content">
+            <div class="pokemon-detail-summary" layout="row">
+                <div class="avatar">
+                    <div class="avatar-body">
+                        <img ng-src="{{icon('001')}}" class="face" alt="Circular Image">
+                    </div>
+                </div>
+                <div class="info" flex>
+                    <h2 class="pokemon-detail-name">Bulbasaur <small>#001</small></h2>
+                    <div class="btn-wrap">
+                        <button class="pokemon-btn">FAIRY</button>
+                        <button class="pokemon-btn species-btn" pk-species="seed">Species <span>Seed</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="pokemon-evolution-arrow"></div>
+            <div class="pokemon-detail-summary" layout="row">
+                <div class="avatar">
+                    <div class="avatar-body">
+                        <img ng-src="{{icon('001')}}" class="face" alt="Circular Image">
+                    </div>
+                </div>
+                <div class="info" flex>
+                    <h2 class="pokemon-detail-name">Bulbasaur <small>#001</small></h2>
+                    <div class="btn-wrap">
+                        <button class="pokemon-btn">FAIRY</button>
+                        <button class="pokemon-btn species-btn" pk-species="seed">Species <span>Seed</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="pokemon-evolution-arrow"></div>
+            <div class="pokemon-detail-summary" layout="row">
+                <div class="avatar">
+                    <div class="avatar-body">
+                        <img ng-src="{{icon('001')}}" class="face" alt="Circular Image">
+                    </div>
+                </div>
+                <div class="info" flex>
+                    <h2 class="pokemon-detail-name">Bulbasaur <small>#001</small></h2>
+                    <div class="btn-wrap">
+                        <button class="pokemon-btn">FAIRY</button>
+                        <button class="pokemon-btn species-btn" pk-species="seed">Species <span>Seed</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- end pokemon-pokemon-evolutions -->
+</div><!-- end pokemon pokemon -->
