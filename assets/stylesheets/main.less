@@ -208,6 +208,11 @@ md-toolbar.topbar {
 
 /* =============== pokemon-list =============== */
 .pokemon-list{
+  md-item.favorited {
+    .pokemon-list-favorite {
+      opacity: 1;
+    }
+  }
   md-item-content {
     padding: 8px 0 8px 24px;
     cursor: pointer;
@@ -227,7 +232,7 @@ md-toolbar.topbar {
   .pokemon-list-avatar {
     padding: 4px;
     border-radius: 100%;
-    border: 1px solid rgba(0, 0, 0, .2);
+//    border: 1px solid rgba(0, 0, 0, .2);
     background: #fdfdfd;
     .transition(all, .4s);
 
@@ -288,14 +293,18 @@ md-toolbar.topbar {
   }
 
   .pokemon-list-favorite {
-    padding: 20px;
-    color: #aaa;
+    padding: 40px;
     margin-right: 10px;
+    background: url("../images/pokemon-ball.png") no-repeat center center;
+    background-size: 30px 30px;
+    opacity: .2;
     cursor: pointer;
+    .transition(all, .25s);
   }
 
-  .pokemon-list-favorite:hover {
+  .pokemon-list-favorite:hover{
     color: #F6A700;
+    opacity: 1;
   }
 }
 
@@ -549,8 +558,8 @@ md-toolbar.topbar {
 /* =============== Response =============== */
 @media screen and (max-width: 480px) {
   /* pokemon list */
-  .pokemon-list .md-item-content {
-    padding: 4px 0 4px 24px;
+  .pokemon-list md-item-content {
+    padding: 8px 0 8px 16px;
   }
 
   .pokemon-list .md-tile-content {
@@ -562,6 +571,12 @@ md-toolbar.topbar {
       line-height: 28px;
       font-size: 1.5em;
     }
+  }
+
+  .pokemon-list .pokemon-list-favorite {
+    padding: 30px;
+    margin-right: 5px;
+    background-size: 26px 26px;
   }
 
   /* pokemon detail */
