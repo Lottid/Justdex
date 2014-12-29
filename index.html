@@ -1,34 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="justdexApp">
 <head lang="en">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
     <title>JustIndex</title>
+    <!-- vendor css -->
     <!-- material css -->
     <link rel="stylesheet" href="vendor/angular-material.min.css">
-
     <link rel="stylesheet" href="assets/stylesheets/normalize.css">
+    <!-- page css -->
     <link rel="stylesheet/less" href="assets/stylesheets/font.less">
     <link rel="stylesheet/less" href="assets/stylesheets/main.less">
 
     <!-- vendor script -->
     <script src="vendor/angular.min.js"></script>
-    <script src="vendor/angular-route.min.js"></script>
+    <script src="vendor/angular-ui-router.min.js"></script>
+    <script src="vendor/underscore-min.js"></script>
 
     <!-- Angular Material Dependencies -->
     <script src="vendor/hammer.min.js"></script>
     <script src="vendor/angular-animate.min.js"></script>
     <script src="vendor/angular-aria.min.js"></script>
-
-    <!-- Angular Material Javascript now available via Google CDN; version 0.6 used here -->
     <script src="vendor/angular-material.min.js"></script>
 
     <!-- page script -->
     <script src="vendor/less.min.js"></script>
     <script src="app/app.js"></script>
+    <script src="app/list/list.js"></script>
+    <script src="app/pokemon/pokemon.js"></script>
+    <script src="app/common/models/list-model.js"></script>
+    <script src="app/common/models/pokemon-model.js"></script>
 
 </head>
-<body ng-app="pokedexApp" ng-controller="AppCtrl">
+<body>
 <div class="wrapper">
     <!-- top bar -->
     <md-toolbar md-scroll-shrink class="topbar" layout="row" layout-align="start center">
@@ -37,7 +41,7 @@
         </a>
         <div class="topbar-search" flex>
             <div layout="row">
-                <input type="text" placeholder="Pokemon" ng-model="search" ng-show="false"/>
+                <input type="text" placeholder="Pokemon" ng-show="false"/>
                 <button></button>
             </div>
         </div>
@@ -46,17 +50,17 @@
     <!-- pokemon list -->
     <md-content style="background: none">
         <md-list class="pokemon-list">
-            <md-item ng-repeat = "pokemon in pokemons | filter:search | orderBy:sortById | limitTo:10 " ng-click = "selectPokemon(pokemon)">
+            <md-item>
                 <md-item-content layout="row">
                     <div class="md-tile-left">
                         <div class="pokemon-list-avatar">
-                            <img ng-src="{{icon(getId(pokemon))}}" class="face" alt="Circular Image">
+                            <img ng-src="" class="face" alt="Circular Image">
                         </div>
                     </div>
                     <div class="md-tile-content" flex layout="row" layout-align="start center">
                         <div class="pokemon-list-info" flex>
-                            <small>#{{getId(pokemon)}}</small>
-                            <h2>{{pokemon.name}}</h2>
+                            <small>#001</small>
+                            <h2>Name</h2>
                             <div class="icon-wrap">
                                 <i pk-type="speed">seed</i><i pk-type="speed">seed</i>
                             </div>
