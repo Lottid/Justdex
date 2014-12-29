@@ -5,4 +5,13 @@ var justdex = angular.module("justdexApp", [
 	'ngMaterial',
 	'list',
 	'pokemon'
-]);
+])
+	.config(function($stateProvider,$urlRouterProvider) {
+		$stateProvider
+			.state('justdex',{
+				url:'/',
+				abstract: true
+			});
+
+		$urlRouterProvider.otherwise('/');
+	});
