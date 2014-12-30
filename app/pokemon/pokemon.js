@@ -19,8 +19,6 @@ angular.module('pokemon', [
     .controller('PokemonController', function ($state, $stateParams, PokemonModel){
         var PokemonCtrl = this;
 
-        PokemonModel.pokemon = null;
-
         PokemonModel.getPokemonDetail($stateParams.pokemon).then(function (result){
             // check data is successfully fetched;
             PokemonCtrl.pokemon = result;
@@ -29,7 +27,6 @@ angular.module('pokemon', [
             if (PokemonCtrl.pokemon === null){
                 $state.go('justdex.list', {});
             } else {
-                console.log(PokemonCtrl.pokemon);
                 // ============================================================
                 //                     pokemon query method
                 // ============================================================
@@ -116,6 +113,19 @@ angular.module('pokemon', [
                 PokemonCtrl.drawChartSpAtk = PokemonCtrl.drawChart(PokemonCtrl.pokemonSpAtk, 180);
                 PokemonCtrl.drawChartSpDef = PokemonCtrl.drawChart(PokemonCtrl.pokemonSpDef, 180);
                 PokemonCtrl.drawChartSpeed = PokemonCtrl.drawChart(PokemonCtrl.pokemonSpeed, 180);
+
+                // ============================================================
+                //                     Evolution chian
+                // ============================================================
+                PokemonCtrl.pokemonEvolutionChain = [];
+                PokemonCtrl.pokemonEvolutionChain.push(pokemon);
+
+                if (pokemon.evolutions){
+                    PokemonModel.getPokemonDetail(pokemon.evolutions[0].to.toLowerCase()).then(function (result){
+                        PokemonCtrl.pokemonEvolutionChain.push(result);
+                        console.log(PokemonCtrl.pokemonEvolutionChain);
+                    });
+                }
             }
         });
 

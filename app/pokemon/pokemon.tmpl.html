@@ -130,50 +130,24 @@
             <h2>Evolutions</h2>
         </div>
         <div class="pokemon-detail-content">
-            <div class="pokemon-detail-summary" layout="row">
-                <div class="avatar">
-                    <div class="avatar-body">
-                        <img ng-src="{{icon('001')}}" class="face" alt="Circular Image">
+            <article ng-repeat="pokemon in PokemonCtrl.pokemonEvolutionChain" ui-sref="justdex.pokemon({pokemon: pokemon.name})">
+                <div class="pokemon-detail-summary" layout="row">
+                    <div class="avatar">
+                        <div class="avatar-body">
+                            <img ng-src="assets/images/icons/{{PokemonCtrl.getPokemonAvatar(pokemon)}}.png" class="face" alt="Circular Image">
+                        </div>
+                    </div>
+                    <div class="info" flex>
+                        <h2 class="pokemon-detail-name">{{PokemonCtrl.getPokemonName(pokemon)}}&nbsp;<small>#{{PokemonCtrl.getPokemonId(pokemon)}}</small></h2>
+                        <div class="btn-wrap">
+                            <button class="pokemon-btn">FAIRY</button>
+                            <button class="pokemon-btn species-btn" pk-species="seed">Species <span>Seed</span></button>
+                        </div>
                     </div>
                 </div>
-                <div class="info" flex>
-                    <h2 class="pokemon-detail-name">Bulbasaur <small>#{{PokemonCtrl.getPokemonId(PokemonCtrl.pokemon)}}</small></h2>
-                    <div class="btn-wrap">
-                        <button class="pokemon-btn">FAIRY</button>
-                        <button class="pokemon-btn species-btn" pk-species="seed">Species <span>Seed</span></button>
-                    </div>
-                </div>
-            </div>
-            <div class="pokemon-evolution-arrow"></div>
-            <div class="pokemon-detail-summary" layout="row">
-                <div class="avatar">
-                    <div class="avatar-body">
-                        <img ng-src="{{icon('001')}}" class="face" alt="Circular Image">
-                    </div>
-                </div>
-                <div class="info" flex>
-                    <h2 class="pokemon-detail-name">Bulbasaur <small>#001</small></h2>
-                    <div class="btn-wrap">
-                        <button class="pokemon-btn">FAIRY</button>
-                        <button class="pokemon-btn species-btn" pk-species="seed">Species <span>Seed</span></button>
-                    </div>
-                </div>
-            </div>
-            <div class="pokemon-evolution-arrow"></div>
-            <div class="pokemon-detail-summary" layout="row">
-                <div class="avatar">
-                    <div class="avatar-body">
-                        <img ng-src="{{icon('001')}}" class="face" alt="Circular Image">
-                    </div>
-                </div>
-                <div class="info" flex>
-                    <h2 class="pokemon-detail-name">Bulbasaur <small>#001</small></h2>
-                    <div class="btn-wrap">
-                        <button class="pokemon-btn">FAIRY</button>
-                        <button class="pokemon-btn species-btn" pk-species="seed">Species <span>Seed</span></button>
-                    </div>
-                </div>
-            </div>
+                <div class="pokemon-evolution-arrow" ng-show="!$last"></div>
+            </article>
+
         </div>
     </div><!-- end pokemon-pokemon-evolutions -->
 </div><!-- end pokemon pokemon -->
