@@ -76,8 +76,8 @@ angular.module('pokemon', [
                 PokemonCtrl.pokemonSpeed = PokemonCtrl.getPokemonSpeed(pokemon);
                 PokemonCtrl.pokemonTotal = PokemonCtrl.getPokemonTotal(pokemon);
 
-                // draw chat
-                PokemonCtrl.drawChat = function (basic, total){
+                // draw Chart
+                PokemonCtrl.drawChart = function (basic, total){
                     var percentage,
                         basic = parseInt(basic),
                         total = parseInt(total),
@@ -110,12 +110,12 @@ angular.module('pokemon', [
                     return {percentage: percentage, color: color};
                 };
 
-                PokemonCtrl.drawChatHp = PokemonCtrl.drawChat(PokemonCtrl.pokemonHp, 200);
-                PokemonCtrl.drawChatAttack = PokemonCtrl.drawChat(PokemonCtrl.pokemonAttack, 180);
-                PokemonCtrl.drawChatDefense = PokemonCtrl.drawChat(PokemonCtrl.pokemonDefense, 180);
-                PokemonCtrl.drawChatSpAtk = PokemonCtrl.drawChat(PokemonCtrl.pokemonSpAtk, 180);
-                PokemonCtrl.drawChatSpDef = PokemonCtrl.drawChat(PokemonCtrl.pokemonSpDef, 180);
-                PokemonCtrl.drawChatSpeed = PokemonCtrl.drawChat(PokemonCtrl.pokemonSpeed, 180);
+                PokemonCtrl.drawChartHp = PokemonCtrl.drawChart(PokemonCtrl.pokemonHp, 200);
+                PokemonCtrl.drawChartAttack = PokemonCtrl.drawChart(PokemonCtrl.pokemonAttack, 180);
+                PokemonCtrl.drawChartDefense = PokemonCtrl.drawChart(PokemonCtrl.pokemonDefense, 180);
+                PokemonCtrl.drawChartSpAtk = PokemonCtrl.drawChart(PokemonCtrl.pokemonSpAtk, 180);
+                PokemonCtrl.drawChartSpDef = PokemonCtrl.drawChart(PokemonCtrl.pokemonSpDef, 180);
+                PokemonCtrl.drawChartSpeed = PokemonCtrl.drawChart(PokemonCtrl.pokemonSpeed, 180);
             }
         });
 
