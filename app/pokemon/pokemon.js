@@ -18,8 +18,11 @@ angular.module('pokemon', [
 
     .controller('PokemonController', function ($state, $stateParams, PokemonModel){
         var PokemonCtrl = this;
+        PokemonCtrl.getPokemonDetailByName = PokemonModel.getPokemonDetailByName;
+        PokemonCtrl.getPokemonDetailById = PokemonModel.getPokemonDetailById;
 
-        PokemonModel.getPokemonDetail($stateParams.pokemon).then(function (result){
+        // read pokemon detail who from url params
+        PokemonCtrl.getPokemonDetailByName($stateParams.pokemon).then(function (result){
             // check data is successfully fetched;
             PokemonCtrl.pokemon = result;
             var pokemon = PokemonCtrl.pokemon;
@@ -39,6 +42,7 @@ angular.module('pokemon', [
                 PokemonCtrl.getPokemonEggGroups = PokemonModel.getPokemonEggGroups;
                 PokemonCtrl.getPokemonEggCycles = PokemonModel.getPokemonEggCycles;
                 PokemonCtrl.getPokemonTypes = PokemonModel.getPokemonTypes;
+                PokemonCtrl.getPokemonEvolutionGroup = PokemonModel.getPokemonEvolutionGroup;
 
                 // basic stats
                 PokemonCtrl.getPokemonAttack = PokemonModel.getPokemonAttack;
@@ -117,14 +121,20 @@ angular.module('pokemon', [
                 // ============================================================
                 //                     Evolution chian
                 // ============================================================
-                PokemonCtrl.pokemonEvolutionChain = [];
-                PokemonCtrl.pokemonEvolutionChain.push(pokemon);
+                // get this pokemon's evolution chain
+                PokemonCtrl.pokemonEvolutionChain = PokemonCtrl.getPokemonEvolutionGroup(pokemon);
+                PokemonCtrl.pokemonEvolutionGroup = [];
 
-                if (pokemon.evolutions){
-                    PokemonModel.getPokemonDetail(pokemon.evolutions[0].to.toLowerCase()).then(function (result){
-                        PokemonCtrl.pokemonEvolutionChain.push(result);
-                        console.log(PokemonCtrl.pokemonEvolutionChain);
-                    });
+                // insert evolution chain's pokemon to a group;
+                var i = 0, len = PokemonCtrl.pokemonEvolutionChain.length;
+                for (; i < len; i++){
+                    console.log(PokemonCtrl.pokemonEvolutionChain[i]);
+                    PokemonCtrl.getPokemonDetailById(PokemonCtrl.pokemonEvolutionChain[i])
+                        .then(function (result){
+                            if (result){
+                                PokemonCtrl.pokemonEvolutionGroup.push(result);
+                            }
+                        });
                 }
             }
         });

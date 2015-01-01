@@ -4,23 +4,53 @@ angular.module('justdex.models.pokemon', [])
     .service('PokemonModel', function ($http){
         var model = this;
 
+        // read local pokemon db
+        model.localPokemonGroup = null;
+        model.localEvolutionData = null;
+
+        if (localStorage.justdex_pokemon_group == null || localStorage.justdex_pokemon_group == 'undefined') {
+            $http.get('data/data.json').then(function (result){
+                model.localPokemonGroup = result.data;
+                localStorage.justdex_pokemon_group = JSON.stringify(result.data);
+            })
+        } else {
+            model.localPokemonGroup = JSON.parse(localStorage.justdex_pokemon_group);
+        }
+
+        if (localStorage.justdex_evolution_group == null || localStorage.justdex_evolution_group == 'undefined') {
+            $http.get('data/evolution_group_data.json').then(function (result){
+                model.localEvolutionData = result.data;
+                localStorage.justdex_evolution_group = JSON.stringify(result.data);
+            })
+        } else {
+            model.localEvolutionData = JSON.parse(localStorage.justdex_evolution_group);
+        }
+
         // get detail;
-        model.getPokemonDetail = function (pokemonName){
+        model.getPokemonDetailByName = function (pokemonName){
             // get pokemon id then fetch pokemon data
             return $http.get('data/data.json').then(function (result) {
-                var POKEMONS = result.data,
-                    id;
+                var id;
 
                 // get id
-                _.find(POKEMONS, function (item) {
-                    if (item.name === pokemonName.toLowerCase()) {
+                _.find(model.localPokemonGroup, function (item) {
+                    if (item.name === pokemonName) {
                         id = item.id;
-                        return id || null;
                     }
                 });
 
                 // fetch pokemon
                 return id ? $http.get('http://pokeapi.co/api/v1/pokemon/' + id).then(function (result) {
+                    return result.data;
+                }) : null;
+            });
+        };
+
+        model.getPokemonDetailById = function (pokemonName){
+            // get pokemon id then fetch pokemon data
+            return $http.get('data/data.json').then(function (result) {
+                // fetch pokemon
+                return pokemonName ? $http.get('http://pokeapi.co/api/v1/pokemon/' + pokemonName).then(function (result) {
                     return result.data;
                 }) : null;
             });
@@ -81,6 +111,12 @@ angular.module('justdex.models.pokemon', [])
         // get egg groups
         model.getPokemonEggGroups = function (pokemon){
             return pokemon.egg_groups;
+        };
+
+        // get evolution group
+        model.getPokemonEvolutionGroup = function (pokemon) {
+            var group = model.localEvolutionData[parseInt(pokemon.pkdx_id)-1];
+            return group ? group : null;
         };
 
         // ============================================================
