@@ -27,20 +27,30 @@ angular.module('justdex.models.pokemon', [])
         }
 
         // get detail;
-        model.getPokemonDetail = function (pokemonName){
+        model.getPokemonDetailByName = function (pokemonName){
             // get pokemon id then fetch pokemon data
             return $http.get('data/data.json').then(function (result) {
                 var id;
 
                 // get id
                 _.find(model.localPokemonGroup, function (item) {
-                    if (item.name === pokemonName.toLowerCase()) {
+                    if (item.name === pokemonName) {
                         id = item.id;
                     }
                 });
 
                 // fetch pokemon
                 return id ? $http.get('http://pokeapi.co/api/v1/pokemon/' + id).then(function (result) {
+                    return result.data;
+                }) : null;
+            });
+        };
+
+        model.getPokemonDetailById = function (pokemonName){
+            // get pokemon id then fetch pokemon data
+            return $http.get('data/data.json').then(function (result) {
+                // fetch pokemon
+                return pokemonName ? $http.get('http://pokeapi.co/api/v1/pokemon/' + pokemonName).then(function (result) {
                     return result.data;
                 }) : null;
             });
@@ -101,6 +111,12 @@ angular.module('justdex.models.pokemon', [])
         // get egg groups
         model.getPokemonEggGroups = function (pokemon){
             return pokemon.egg_groups;
+        };
+
+        // get evolution group
+        model.getPokemonEvolutionGroup = function (pokemon) {
+            var group = model.localEvolutionData[parseInt(pokemon.pkdx_id)-1];
+            return group ? group : null;
         };
 
         // ============================================================
