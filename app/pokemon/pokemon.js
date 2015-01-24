@@ -94,17 +94,17 @@ angular.module('pokemon', [
 
                     // sett color
                     if (percentage <= 10) {
-                        color = 'darkred';
+                        color = '#028AA0';
                     } else if (percentage <= 25) {
-                        color = 'red';
+                        color = '#01a0ba';
                     } else if (percentage <= 50) {
-                        color = 'yellow';
+                        color = '#00B9D4';
                     } else if (percentage <= 75) {
-                        color = 'orange';
+                        color = '#00d1f0';
                     } else if (percentage <= 100) {
-                        color = 'darkorange';
+                        color = '#28e4ff';
                         if (isHigherThanNormal) {
-                            color = 'red';
+                            color = '#6aecff';
                         }
                     }
 
@@ -117,6 +117,14 @@ angular.module('pokemon', [
                 PokemonCtrl.drawChartSpAtk = PokemonCtrl.drawChart(PokemonCtrl.pokemonSpAtk, 180);
                 PokemonCtrl.drawChartSpDef = PokemonCtrl.drawChart(PokemonCtrl.pokemonSpDef, 180);
                 PokemonCtrl.drawChartSpeed = PokemonCtrl.drawChart(PokemonCtrl.pokemonSpeed, 180);
+
+                // Test: color
+                //PokemonCtrl.drawChartHp = PokemonCtrl.drawChart(20, 200);
+                //PokemonCtrl.drawChartAttack = PokemonCtrl.drawChart(40, 180);
+                //PokemonCtrl.drawChartDefense = PokemonCtrl.drawChart(90, 180);
+                //PokemonCtrl.drawChartSpAtk = PokemonCtrl.drawChart(135, 180);
+                //PokemonCtrl.drawChartSpDef = PokemonCtrl.drawChart(180, 180);
+                //PokemonCtrl.drawChartSpeed = PokemonCtrl.drawChart(200, 180);
 
                 // ============================================================
                 //                     Evolution chian
