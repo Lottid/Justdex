@@ -127,7 +127,7 @@ angular.module('pokemon', [
                 //PokemonCtrl.drawChartSpeed = PokemonCtrl.drawChart(200, 180);
 
                 // ============================================================
-                //                     Evolution chian
+                //                     Evolution chain
                 // ============================================================
                 // get this pokemon's evolution chain
                 PokemonCtrl.pokemonEvolutionChain = PokemonCtrl.getPokemonEvolutionGroup(pokemon);
