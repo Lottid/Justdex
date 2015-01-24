@@ -161,4 +161,30 @@ angular.module('justdex.models.pokemon', [])
         model.getPokemonEggCycles = function (pokemon){
             return pokemon.egg_cycles;
         };
+
+        // ============================================================
+        //                       evolution
+        // ============================================================
+        model.getEvolutionPokemon = function (pokemon){
+            //var pokemonIdGroup = model.getPokemonEvolutionGroup(pokemon);
+            //var pokemons = [];
+            //
+            //console.log(pokemonIdGroup);
+            //var i = 0;
+            //function getPokemon(){
+            //    model.getPokemonDetailById(pokemonIdGroup[i]).then(function(result){
+            //        console.log(i, result);
+            //        pokemons.push(result);
+            //        i++;
+            //
+            //        if (i <pokemonIdGroup.length) {
+            //            getPokemon();
+            //        }
+            //    });
+            //}
+            //getPokemon();
+            //
+            //console.log('Finished ');
+            //return pokemons;
+        };
     });

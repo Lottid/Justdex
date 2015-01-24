@@ -144,6 +144,8 @@ angular.module('pokemon', [
                             }
                         });
                 }
+
+                console.log(PokemonModel.getEvolutionPokemon(pokemon));
             }
         });
 
