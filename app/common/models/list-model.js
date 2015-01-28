@@ -25,22 +25,25 @@ angular.module('justdex.models.list', [])
             } else if (idSource < 100) {
                 id = '0' + idSource;
             } else {
-                return idSource;
+                return '#'+idSource;
             }
-            return id;
+            return '#'+id;
         };
 
         // return pokemon avatar file name via file name same with pokemon id
         model.getPokemonAvatar = function (pokemon){
             var idSource = pokemon.id, fileName;
 
+            // path
+            var avatarFilePath = 'assets/images/icons/';
+
             if (idSource < 10) {
                 fileName = '00' + idSource;
             } else if (idSource < 100) {
                 fileName = '0' + idSource;
             } else {
-                return idSource;
+                return avatarFilePath + idSource + '.png';
             }
-            return fileName;
+            return avatarFilePath + fileName + '.png';
         };
     });

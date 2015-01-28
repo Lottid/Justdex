@@ -3,6 +3,7 @@
 var justdex = angular.module("justdexApp", [
 	'ui.router',
 	'ngMaterial',
+	'pasvaz.bindonce',
 	'list',
 	'pokemon'
 ])
