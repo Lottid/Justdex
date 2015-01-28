@@ -13,5 +13,5 @@ var justdex = angular.module("justdexApp", [
 				abstract: true
 			});
 
-		$urlRouterProvider.otherwise('/');
+		$urlRouterProvider.otherwise('/list');
 	});
