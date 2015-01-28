@@ -32,18 +32,16 @@ angular.module('justdex.models.list', [])
 
         // return pokemon avatar file name via file name same with pokemon id
         model.getPokemonAvatar = function (pokemon){
-            var idSource = pokemon.id, fileName;
-
             // path
-            var avatarFilePath = 'assets/images/icons/';
+            var avatarFilePath = 'assets/images/icons-pixel/';
+            var avatar = pokemon.id;
 
-            if (idSource < 10) {
-                fileName = '00' + idSource;
-            } else if (idSource < 100) {
-                fileName = '0' + idSource;
-            } else {
-                return avatarFilePath + idSource + '.png';
+            if (avatar < 10) {
+                avatar = '00' + avatar;
+            } else if (avatar < 100) {
+                avatar = '0' + avatar;
             }
-            return avatarFilePath + fileName + '.png';
+
+            return avatarFilePath + avatar + 'e.png';
         };
     });

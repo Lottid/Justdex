@@ -4,7 +4,7 @@
     <div class="pokemon-detail-summary" layout="row">
         <div class="avatar">
             <div class="avatar-body">
-                <img ng-src="assets/images/icons/{{PokemonCtrl.getPokemonAvatar(PokemonCtrl.pokemon)}}.png" class="face" alt="Circular Image">
+                <img ng-src="{{PokemonCtrl.getPokemonAvatar(PokemonCtrl.pokemon)}}" class="face" alt="Circular Image">
             </div>
         </div>
         <div class="info" flex>
@@ -134,7 +134,7 @@
                 <div class="pokemon-detail-summary" layout="row">
                     <div class="avatar">
                         <div class="avatar-body">
-                            <img ng-src="assets/images/icons/{{PokemonCtrl.getPokemonAvatar(pokemon)}}.png" class="face" alt="Circular Image">
+                            <img ng-src="{{PokemonCtrl.getPokemonAvatar(pokemon)}}" class="face" alt="Circular Image">
                         </div>
                     </div>
                     <div class="info" flex>

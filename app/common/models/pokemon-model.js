@@ -76,15 +76,17 @@ angular.module('justdex.models.pokemon', [])
 
         // get avatar
         model.getPokemonAvatar = function (pokemon){
-            var id = pokemon.pkdx_id;
+            // path
+            var avatarFilePath = 'assets/images/icons-pixel/';
+            var avatar = pokemon.pkdx_id;
 
-            if (id < 10){
-                id = '00' + id;
-            } else if (id < 100) {
-                id = '0' + id
+            if (avatar < 10){
+                avatar = '00' + avatar;
+            } else if (avatar < 100) {
+                avatar = '0' + avatar
             }
 
-            return id;
+            return avatarFilePath + avatar + 'e.png';
         };
 
         // get types
