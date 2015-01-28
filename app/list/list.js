@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('list', [
-    'justdex.models.list'
+    'justdex.models.list',
+    'infinite-scroll'
 ])
     .config(function ($stateProvider){
         $stateProvider
@@ -27,10 +28,30 @@ angular.module('list', [
         // get list
         ListCtrl.getPokemonList().then(function (result){
             ListCtrl.pokemonList = result;
+
+            // sort pokemon list method
+            ListCtrl.sortById = function (pokemon){
+                return parseInt(pokemon.id);
+            };
+
+            // infinite scroll
+            ListCtrl.scrollPokemonList = ListCtrl.pokemonList.slice(0, 11);
+            ListCtrl.scrollEnd = false;
+            var pokemonListLength = ListCtrl.pokemonList.length-1;
+            var index = 0;
+
+            ListCtrl.loadMore = function (){
+                for (var i = 0; i < 5; i++) {
+                    if (ListCtrl.scrollPokemonList.length < pokemonListLength) {
+                        ListCtrl.scrollPokemonList.push(ListCtrl.pokemonList[ListCtrl.scrollPokemonList.length + 1]);
+                    } else {
+                        ListCtrl.scrollEnd = true;
+                        return;
+                    }
+                }
+            };
         });
 
-        // sort pokemon list method
-        ListCtrl.sortById = function (pokemon){
-            return parseInt(pokemon.id);
-        };
+
+
     });

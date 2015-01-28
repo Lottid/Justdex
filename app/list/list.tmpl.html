@@ -1,7 +1,7 @@
 <!-- pokemon list -->
 <md-content style="background: none">
-    <md-list class="pokemon-list">
-        <md-item ng-repeat="pokemon in ListCtrl.pokemonList | orderBy: ListCtrl.sortById" ui-sref="justdex.pokemon({pokemon: pokemon.name})">
+    <md-list class="pokemon-list" infinite-scroll='ListCtrl.loadMore()' infinite-scroll-distance='2'>
+        <md-item ng-repeat="pokemon in ListCtrl.scrollPokemonList | orderBy: ListCtrl.sortById" ui-sref="justdex.pokemon({pokemon: pokemon.name})">
             <md-item-content layout="row">
                 <div class="md-tile-left">
                     <div class="pokemon-list-avatar">
