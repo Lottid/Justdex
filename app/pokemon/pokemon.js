@@ -136,16 +136,28 @@ angular.module('pokemon', [
                 // insert evolution chain's pokemon to a group;
                 var i = 0, len = PokemonCtrl.pokemonEvolutionChain.length;
                 for (; i < len; i++){
-                    console.log(PokemonCtrl.pokemonEvolutionChain[i]);
+                    //console.log(PokemonCtrl.pokemonEvolutionChain[i]);
                     PokemonCtrl.getPokemonDetailById(PokemonCtrl.pokemonEvolutionChain[i])
                         .then(function (result){
                             if (result){
-                                PokemonCtrl.pokemonEvolutionGroup.push(result);
+                                for (var i = 0; i < PokemonCtrl.pokemonEvolutionChain.length; i++) {
+                                    if (PokemonCtrl.pokemonEvolutionChain[i] == result.pkdx_id) {
+                                        PokemonCtrl.pokemonEvolutionGroup[i] = result;
+                                        return true;
+                                    }
+                                }
                             }
                         });
                 }
 
-                console.log(PokemonModel.getEvolutionPokemon(pokemon));
+                // filter null array item when ng repeat
+                PokemonCtrl.exist = function (item){
+                    if (item !== null && item !== undefined) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
             }
         });
 
