@@ -29,6 +29,9 @@ angular.module('justdex.models.pokemon', [])
         // get detail;
         model.getPokemonDetailByName = function (pokemonName){
             // get pokemon id then fetch pokemon data
+            // lowerCase pokemonName when user query pokemon via pokemon name
+            var pokemonName = pokemonName.toLowerCase();
+
             return $http.get('data/data.json').then(function (result) {
                 var id;
 
