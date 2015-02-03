@@ -130,7 +130,7 @@
             <h2>Evolutions</h2>
         </div>
         <div class="pokemon-detail-content">
-            <article ng-repeat="pokemon in PokemonCtrl.pokemonEvolutionGroup" ui-sref="justdex.pokemon({pokemon: pokemon.name})">
+            <article ng-repeat="pokemon in PokemonCtrl.pokemonEvolutionGroup | filter: PokemonCtrl.exist" ui-sref="justdex.pokemon({pokemon: pokemon.name})">
                 <div class="pokemon-detail-summary" layout="row">
                     <div class="avatar">
                         <div class="avatar-body">
